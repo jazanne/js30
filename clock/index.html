@@ -102,6 +102,9 @@
       hourHand.setTime( now.getHours() );
     }
     
+    // run on page load
+    setClock();
+    // run every second
     setInterval(setClock, SECOND);
 
   </script>
