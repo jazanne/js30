@@ -84,9 +84,10 @@
       const minutes = now.getMinutes();
       const hours = now.getHours();
 
-      const secDeg = seconds * MAX_DEG / 60;
-      const minDeg = minutes * MAX_DEG / 60;
-      const hourDeg = hours * MAX_DEG / 12;
+      const OFFSET = 90;
+      const secDeg = ( seconds * MAX_DEG / 60 ) + OFFSET;
+      const minDeg = ( minutes * MAX_DEG / 60 ) + OFFSET;
+      const hourDeg = ( hours * MAX_DEG / 12 ) + OFFSET;
 
       secondHand.style.transform = `rotate(${secDeg}deg)`;
       minuteHand.style.transform = `rotate(${minDeg}deg)`;
