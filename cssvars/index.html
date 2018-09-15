@@ -29,7 +29,7 @@
 
     img {
       padding: var(--spacing);
-      filter: blur(var(--spacing));
+      filter: blur(var(--blur));
       background: var(--base);
     }
 
@@ -59,6 +59,20 @@
   </style>
 
   <script>
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach( x => x.addEventListener('change', updateStyles ));
+    inputs.forEach( x => x.addEventListener('mouseEvent', updateStyles ));
+    
+
+    function updateStyles(e){
+      const root = document.documentElement;
+      const varName = this.getAttribute('name');
+      if ( !varName ) return;
+      const value = this.value;
+      const sizing = this.getAttribute('data-sizing');
+      const changeTo = value + (sizing ? sizing : '');
+      root.style.setProperty(`--${varName}`, changeTo);
+    } 
   </script>
 
 </body>
