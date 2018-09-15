@@ -61,7 +61,7 @@
   <script>
     const inputs = document.querySelectorAll('input');
     inputs.forEach( x => x.addEventListener('change', updateStyles ));
-    inputs.forEach( x => x.addEventListener('mouseEvent', updateStyles ));
+    inputs.forEach( x => x.addEventListener('mousemove', updateStyles ));
     
 
     function updateStyles(e){
@@ -73,6 +73,12 @@
       const changeTo = value + (sizing ? sizing : '');
       root.style.setProperty(`--${varName}`, changeTo);
     } 
+    /*
+     * Things I could have done better:
+     * - can access data attributes with ELEM.dataset
+     * - can access name with ELEM.name
+     * - mouseEvent should be mousemove
+    */
   </script>
 
 </body>
